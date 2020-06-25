@@ -17,6 +17,7 @@ privateKey = privateKey.join('');
 
 let key = crypto.createHash('md5').update(privateKey, 'utf8').digest('hex').toUpperCase();
 
+console.log(process.argv);
 
 const encrypt = function (text) {
     const iv = crypto.randomBytes(16);
@@ -44,7 +45,7 @@ const encryptStacked = function (text) {
 
 module.exports = {encrypt, decrypt, decryptStacked, encryptStacked};
 
-if (process.argv.length === 4 || process.argv.length === 5) {
+if (process.argv.length === 4 || process.argv.length === 5 || process.argv.length === 3) {
     let args = [...process.argv];
     args.shift();
     args.shift();
@@ -62,8 +63,16 @@ if (process.argv.length === 4 || process.argv.length === 5) {
         process.exit(0);
     }
     if (cmd === '-v' && process.argv.length === 3) {
-        const pkg = require('./package.json');
-        console.log(pkg.name, pkg.version);
+        const pkg = require(path.join(__dirname, '/package.json'));
+        console.log(pkg.name, '(axi) CLI', 'v' + pkg.version);
+        process.exit(0);
+    }
+    if (cmd === '-h' && process.argv.length === 3) {
+        console.log('axi uses ~/.ssh/id_rsa as a key.');
+        console.log('version: axi -v');
+        console.log('help   : axi -h');
+        console.log('encrypt: axi -e "text to encrypt"');
+        console.log('decrypt: axi -d "5688095f08ee3ae699c09ef83ed08dca 89a5c112ae1ae599a0afe627a874e5bd"');
         process.exit(0);
     }
 }

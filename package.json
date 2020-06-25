@@ -4,7 +4,7 @@
   "description": "Lightweight AES-256 Encryption Decryption Library and CLI for NodeJS - Zero Dependencies",
   "main": "index.js",
   "bin": {
-    "aesxi": "./index.js"
+    "axi": "node ./index.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

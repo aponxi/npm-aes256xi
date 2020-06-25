@@ -36,3 +36,9 @@ axi -d "5688095f08ee3ae699c09ef83ed08dca 89a5c112ae1ae599a0afe627a874e5bd"
 some string 123
 ```
 
+## Revisions
+
+### v1.0.2
+
+- Added help `-h` in cli
+- Corrected `-v` in cli
