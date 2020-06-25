@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 const homedir = require('os').homedir();
 const path = require('path');
 const fs = require('fs');
@@ -63,7 +64,7 @@ if (process.argv.length === 4 || process.argv.length === 5 || process.argv.lengt
         process.exit(0);
     }
     if (cmd === '-v' && process.argv.length === 3) {
-        const pkg = require(path.join(__dirname, '/package.json'));
+        const pkg = require(path.join(__dirname, 'package.json'));
         console.log(pkg.name, '(axi) CLI', 'v' + pkg.version);
         process.exit(0);
     }
