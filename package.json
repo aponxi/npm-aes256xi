@@ -1,10 +1,10 @@
 {
   "name": "aes256xi",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Lightweight AES-256 Encryption Decryption Library and CLI for NodeJS - Zero Dependencies",
   "main": "index.js",
   "bin": {
-    "aesxi": "./index.js.js"
+    "aesxi": "./index.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -21,6 +21,7 @@
     "crypto",
     "aes"
   ],
+  "readme": "README.md",
   "author": "aponxi",
   "license": "MIT",
   "bugs": {
