@@ -1,10 +1,10 @@
 {
   "name": "aes256xi",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Lightweight AES-256 Encryption Decryption Library and CLI for NodeJS - Zero Dependencies",
   "main": "index.js",
   "bin": {
-    "axi": "./index.js"
+    "axi": "index.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
