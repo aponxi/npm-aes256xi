@@ -3,7 +3,9 @@ const homedir = require('os').homedir();
 const path = require('path');
 const fs = require('fs');
 const crypto = require('crypto');
-const privateKeyPath = path.join(homedir, '.ssh', 'id_rsa');
+let privateKeyPath = path.join(homedir, '.ssh', 'id_rsa');
+
+if (process.env.AXI_KEY_PATH) privateKeyPath = process.env.AXI_KEY_PATH;
 
 if (!fs.existsSync(privateKeyPath)) {
     throw new Error('Private key does not exist: ' + privateKeyPath);
@@ -17,8 +19,6 @@ privateKey = privateKey.join('');
 
 
 let key = crypto.createHash('md5').update(privateKey, 'utf8').digest('hex').toUpperCase();
-
-console.log(process.argv);
 
 const encrypt = function (text) {
     const iv = crypto.randomBytes(16);
@@ -69,7 +69,7 @@ if (process.argv.length === 4 || process.argv.length === 5 || process.argv.lengt
         process.exit(0);
     }
     if (cmd === '-h' && process.argv.length === 3) {
-        console.log('axi uses ~/.ssh/id_rsa as a key.');
+        console.log('axi uses ~/.ssh/id_rsa OR AXI_KEY_PATH environment variable as the key path.');
         console.log('version: axi -v');
         console.log('help   : axi -h');
         console.log('encrypt: axi -e "text to encrypt"');

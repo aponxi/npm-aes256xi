@@ -1,6 +1,6 @@
 {
   "name": "aes256xi",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Lightweight AES-256 Encryption Decryption Library and CLI for NodeJS - Zero Dependencies",
   "main": "index.js",
   "bin": {
